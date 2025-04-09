@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind Practice :</title>
+    <link rel="stylesheet" href="src/output.css" />
+  </head>
+
+  <body class="bg-black text-white">
+    <!-- Navbar -->
+
+    <nav
+      class="w-full h-15 bg-blue-900 flex justify-between items-center px-5 relative"
+    >
+      <div class="md:text-2xl text-xl">PW Skils</div>
+
+      <!-- Laptop Navbar -->
+      <ul class="md:flex items-center gap-5 hidden">
+        <li
+          class="list-none cursor-pointer hover:text-blue-500 md:text-lg transition-all duration-300 ease-in-out"
+        >
+          Home
+        </li>
+        <li
+          class="list-none cursor-pointer hover:text-blue-500 md:text-lg transition-all duration-300 ease-in-out"
+        >
+          About Us
+        </li>
+        <li
+          class="list-none cursor-pointer hover:text-blue-500 md:text-lg transition-all duration-300 ease-in-out"
+        >
+          Contact Us
+        </li>
+      </ul>
+
+      <!-- Laptop Button -->
+      <div class="md:block hidden">
+        <button
+          class="px-4 py-2 rounded bg-blue-100 text-blue-600 font-semibold cursor-pointer hover:bg-blue-700 hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+        >
+          Login/SignUp
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Icon -->
+      <div id="hamburger" class="md:hidden cursor-pointer block">
+        <img src="assets/hamburger.svg" alt="" />
+      </div>
+
+      <!-- Overlay Blur Layer -->
+      <div
+        id="overlay"
+        class="hidden fixed inset-0 backdrop-blur-sm transition-all duration-300 ease-in-out z-10"
+      ></div>
+
+      <!-- Mobile Sidebar -->
+      <div
+        id="mobileNav"
+        class="md:hidden fixed top-0 right-0 bg-blue-300 text-white p-5 w-[50vw] h-[100vh] translate-x-full transition-all duration-300 ease-in-out z-20"
+      >
+        <div id="closeHamBurger" class="absolute right-7 top-5 cursor-pointer">
+          <img src="assets/closeHamburger.svg" alt="" />
+        </div>
+
+        <ul
+          class="flex flex-col items-center justify-between gap-3 h-full py-10"
+        >
+          <div class="flex flex-col items-center justify-center gap-3">
+            <li
+              class="list-none cursor-pointer hover:text-blue-500 text-lg transition-all duration-300 ease-in-out"
+            >
+              Home
+            </li>
+            <li
+              class="list-none cursor-pointer hover:text-blue-500 text-lg transition-all duration-300 ease-in-out"
+            >
+              About Us
+            </li>
+            <li
+              class="list-none cursor-pointer hover:text-blue-500 text-lg transition-all duration-300 ease-in-out"
+            >
+              Contact Us
+            </li>
+          </div>
+
+          <div>
+            <button
+              class="px-4 py-2 rounded bg-blue-100 text-blue-600 font-semibold cursor-pointer hover:bg-blue-700 hover:text-white hover:scale-105 transition-all duration-300 ease-in-out"
+            >
+              Login/SignUp
+            </button>
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+    <script>
+      let hamburger = document.getElementById("hamburger");
+      let closeHamBurger = document.getElementById("closeHamBurger");
+      let mobileNav = document.getElementById("mobileNav");
+      let overlay = document.getElementById("overlay");
+
+      hamburger.addEventListener("click", () => {
+        mobileNav.classList.remove("translate-x-full");
+        mobileNav.classList.add("translate-x-0");
+
+        overlay.classList.remove("hidden");
+        overlay.classList.add("block");
+      });
+
+      closeHamBurger.addEventListener("click", () => {
+        mobileNav.classList.remove("translate-x-0");
+        mobileNav.classList.add("translate-x-full");
+
+        overlay.classList.remove("block");
+        overlay.classList.add("hidden");
+      });
+
+      // Optional: click outside to close sidebar
+      overlay.addEventListener("click", () => {
+        mobileNav.classList.remove("translate-x-0");
+        mobileNav.classList.add("translate-x-full");
+
+        overlay.classList.remove("block");
+        overlay.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
